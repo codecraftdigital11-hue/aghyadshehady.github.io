@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أغيد شحادة | مصمم جرافيك ومونتير</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #8a2d6e;
+            --primary-dark: #5a1a46;
+            --primary-light: #b74f97;
+            --secondary-color: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+            --card-bg: #f8f8f8;
+            --section-bg: #f0f0f0;
+            --border-color: #e0e0e0;
+            --section-padding: 80px 5%;
+        }
+        
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .logo i {
+            margin-left: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 30px;
+        }
+        
+        .nav-links a {
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            color: var(--text-color);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            border-top: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav-links li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav-links a {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-color);
+            padding: 10px 20px;
+            display: block;
+            transition: color 0.3s;
+        }
+        
+        .mobile-nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: var(--section-padding);
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            width: 100%;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+        
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        /* Circular Image in Hero */
+        .hero-image {
+            flex: 0 0 300px;
+        }
+        
+        .circular-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid var(--primary-light);
+            box-shadow: 0 15px 30px rgba(138, 45, 110, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .circular-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(138, 45, 110, 0.3);
+        }
+        
+        .circular-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .cta-button:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        /* About Me Section */
+        .about {
+            padding: var(--section-padding);
+            background-color: var(--section-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+            color: var(--text-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+        
+        .about-image {
+            flex: 0 0 350px;
+            text-align: center;
+        }
+        
+        .about-image .circular-image {
+            width: 350px;
+            height: 350px;
+            border: 10px solid var(--primary-light);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: var(--section-padding);
+            background-color: var(--secondary-color);
+        }
+        
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            gap: 20px;
+        }
+        
+        .filter-btn {
+            background-color: white;
+            color: var(--text-light);
+            border: 2px solid var(--border-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-btn i {
+            margin-left: 10px;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(138, 45, 110, 0.1);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .project-info p {
+            color: var(--text-light);
+        }
+        
+        /* Reels Style - فيديوهات بحجم Reels */
+        .reels-card {
+            position: relative;
+        }
+        
+        .reels-container {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .reels-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 177.78%; /* نسبة 9:16 */
+            background: #000;
+            overflow: hidden;
+        }
+        
+        .reels-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .reels-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            padding: 0 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+        
+        .reels-video-wrapper:hover .reels-controls {
+            opacity: 1;
+        }
+        
+        .reels-play-btn {
+            background: rgba(138, 45, 110, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .reels-play-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        .reels-info {
+            background: #fff;
+            padding: 10px 15px;
+        }
+        
+        .reels-actions {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .reels-action-btn {
+            background: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-color);
+            font-size: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .reels-action-btn i {
+            font-size: 18px;
+        }
+        
+        .reels-action-btn:hover {
+            background: var(--section-bg);
+        }
+        
+        .like-btn:hover i {
+            color: #ff4757;
+        }
+        
+        .comment-btn:hover i {
+            color: var(--primary-color);
+        }
+        
+        .share-btn:hover i {
+            color: #1e90ff;
+        }
+        
+        .reels-stats {
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .views-count i {
+            color: var(--primary-color);
+            margin-left: 5px;
+        }
+        
+        /* زر زيارة المشاريع الأخرى */
+        .drive-projects-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            margin-top: 40px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(138, 45, 110, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .drive-projects-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(138, 45, 110, 0.3);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+            color: white;
+        }
+        
+        .drive-projects-btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .drive-projects-btn i {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .drive-projects-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .drive-projects-btn-container {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--border-color);
+        }
+        
+        .drive-projects-btn-container h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .drive-projects-btn-container p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        /* تأثير النبض للزر */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(138, 45, 110, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(138, 45, 110, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(138, 45, 110, 0);
+            }
+        }
+        
+        .drive-projects-btn.pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            right: 0;
+            bottom: 0;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-left: 10px;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s;
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content, .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image, .about-image {
+                order: -1;
+                margin-bottom: 40px;
+            }
+            
+            .circular-image {
+                margin: 0 auto;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 50px 5%;
+            }
+            
+            /* Header and Navigation for Mobile */
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo {
+                font-size: 22px;
+            }
+            
+            /* Hero Section for Mobile */
+            .hero {
+                padding-top: 90px;
+                min-height: auto;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .hero-text {
+                order: 2;
+            }
+            
+            .hero-image {
+                order: 1;
+                flex: 0 0 auto;
+                margin-bottom: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+                padding: 0 10px;
+            }
+            
+            .circular-image {
+                width: 200px;
+                height: 200px;
+                border-width: 6px;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            /* About Section for Mobile */
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .about-image {
+                flex: 0 0 auto;
+            }
+            
+            .about-image .circular-image {
+                width: 200px;
+                height: 200px;
+                border-width: 6px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .section-title::after {
+                width: 60px;
+                height: 3px;
+                bottom: -10px;
+            }
+            
+            .about-text h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+                line-height: 1.6;
+                text-align: justify;
+                padding: 0 5px;
+            }
+            
+            /* Projects Section for Mobile */
+            .projects-filter {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 30px;
+            }
+            
+            .filter-btn {
+                width: 250px;
+                justify-content: center;
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .project-img {
+                height: 180px;
+            }
+            
+            .project-info {
+                padding: 15px;
+            }
+            
+            .project-info h3 {
+                font-size: 1.2rem;
+            }
+            
+            .reels-container {
+                max-width: 100%;
+            }
+            
+            .reels-video-wrapper {
+                padding-top: 177.78%; /* نفس نسبة 9:16 */
+            }
+            
+            .reels-actions {
+                gap: 15px;
+            }
+            
+            .reels-action-btn {
+                padding: 5px 8px;
+            }
+            
+            .reels-action-btn i {
+                font-size: 18px;
+            }
+            
+            /* زر زيارة المشاريع للموبايل */
+            .drive-projects-btn-container {
+                margin-top: 40px;
+                padding-top: 30px;
+            }
+            
+            .drive-projects-btn-container h3 {
+                font-size: 1.5rem;
+            }
+            
+            .drive-projects-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            /* Footer for Mobile */
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-column {
+                padding: 0;
+                margin-bottom: 30px;
+            }
+            
+            .footer-column h3::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .contact-info li {
+                justify-content: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .copyright {
+                padding: 20px 10px 0;
+                font-size: 0.8rem;
+            }
+            
+            /* Adjust hero background for mobile */
+            .hero {
+                background: linear-gradient(rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+            }
+            
+            /* Touch-friendly improvements */
+            button, .cta-button, .filter-btn, .social-icon {
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            /* Better touch targets */
+            .nav-links a, .mobile-nav-links a {
+                padding: 8px 0;
+                display: inline-block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .circular-image {
+                width: 170px;
+                height: 170px;
+            }
+            
+            .about-image .circular-image {
+                width: 170px;
+                height: 170px;
+            }
+            
+            .projects-grid {
+                gap: 15px;
+            }
+            
+            .filter-btn {
+                width: 220px;
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+        }
+        
+        /* Tablet Styles */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .circular-image {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .about-image .circular-image {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hero-content, .about-content {
+                gap: 40px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .reels-container {
+                max-width: 320px;
+            }
+        }
+        
+        @media (min-width: 993px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            :root {
+                --section-padding: 60px 5%;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .circular-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .about-image .circular-image {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-palette"></i>
+                اغيد<span>شحادة</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">من أنا</a></li>
+                <li><a href="#projects">المشاريع</a></li>
+                <li><a href="#contact">اتصل بي</a></li>
+            </ul>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">من أنا</a></li>
+                <li><a href="#projects">المشاريع</a></li>
+                <li><a href="#contact">اتصل بي</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero / Home Section with Circular Image -->
+<!-- Hero / Home Section with Circular Image -->
+<section id="home" class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <h1>مرحبًا، أنا <span>أغيد شحادة</span></h1>
+            <p>أغيد شحادة | مصمم جرافيك، مونتير ومصمم موشن جرافيك 2D. من دمشق، متخصص في فنون ما بعد الإنتاج، وتنسيق الإيقاع البصري وتصحيح الألوان للأفلام القصيرة ومنصات التواصل الاجتماعي. غايتي هي إبراز جمالية المضمون بلمسة تترك أثراً.</p>
+            
+            <div class="hero-buttons">
+                <a href="#projects" class="cta-button">
+                    استعرض أعمالي <i class="fas fa-arrow-left"></i>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1ULFc5AAyfHiCv4shN4xlNscgtLl0mXBR" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="cta-button secondary-btn">
+                    <i class="fab fa-google-drive"></i> مجلد الملحقات 
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="circular-image">
+                <img src="بروفايل.webp" alt="مصمم ومحرر محترف">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">من أنا</h2>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="circular-image">
+                        <img src="بروفايل.webp" alt="مصمم ومحرر محترف">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>مرحبًا، أنا أغيد</h3>
+                    <p>أنا أغيد شحادة من دمشق، أعمل في مجال التصميم الجرافيكي وصناعة المحتوى البصري. بخبرة تمتد لسنتين في المونتاج وسنة ونصف في الجرافيك ديزاين والموشن جرافيك (2D) ... قمت خلال تلك الفترة بالعمل على ما يزيد عن 50 من المشاريع المتنوعة المجالات .</p>
+                    <p>أركز بشكل أساسي على مرحلة ما بعد الإنتاج (Post-production) لتحويل الأفكار إلى واقع بصري ملموس.</p>
+                    <p>تخصصي يتركز في خلق مرئيات جذابة وضبط الإيقاع البصري بما يتناسب مع طبيعة العمل، سواء كان أفلاماً قصيرة أو محتوى مخصصاً لمنصات التواصل الاجتماعي. هدفي دائماً ليس مجرد التنفيذ، بل إبراز الجمالية الحقيقية للمضمون الذي تقدمه وتقديمه بأفضل صورة ممكنة تترك بصمة عند المشاهد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">معرض المشاريع</h2>
+            
+            <div class="projects-grid">
+                <!-- Video Projects -->
+                <div class="project-card video-card reels-card" data-category="video">
+                    <div class="reels-container">
+                        <div class="reels-video-wrapper">
+                            <video controls preload="metadata" class="reels-video">
+                                <source src="3-الشطرنج.mp4" type="video/mp4">
+                                <p>متصفحك لا يدعم تشغيل الفيديو. يمكنك <a href="3-الشطرنج.mp4">تحميله</a> بدلاً من ذلك.</p>
+                            </video>
+                            <div class="reels-controls">
+                                <button class="reels-play-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="reels-info">
+                            <div class="reels-actions">
+                                <button class="reels-action-btn like-btn">
+                                    <i class="far fa-heart"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn comment-btn">
+                                    <i class="far fa-comment"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn share-btn">
+                                    <i class="far fa-paper-plane"></i>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>The Chess</h3>
+                    </div>
+                </div>
+
+                <div class="project-card video-card reels-card" data-category="video">
+                    <div class="reels-container">
+                        <div class="reels-video-wrapper">
+                            <video controls preload="metadata" class="reels-video">
+                                <source src="ريل التوصيل للمحافظات نهائي.mp4" type="video/mp4">
+                                <p>متصفحك لا يدعم تشغيل الفيديو. يمكنك <a href="ريل التوصيل للمحافظات نهائي.mp4">تحميله</a> بدلاً من ذلك.</p>
+                            </video>
+                            <div class="reels-controls">
+                                <button class="reels-play-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="reels-info">
+                            <div class="reels-actions">
+                                <button class="reels-action-btn like-btn">
+                                    <i class="far fa-heart"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn comment-btn">
+                                    <i class="far fa-comment"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn share-btn">
+                                    <i class="far fa-paper-plane"></i>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>CityCab takes you wherever you want - 2d motion project</h3>
+                    </div>
+                </div>
+
+                <div class="project-card video-card reels-card" data-category="video">
+                    <div class="reels-container">
+                        <div class="reels-video-wrapper">
+                            <video controls preload="metadata" class="reels-video">
+                                <source src="ياركس كارز.mp4" type="video/mp4">
+                                <p>متصفحك لا يدعم تشغيل الفيديو. يمكنك <a href="ياركس كارز.mp4">تحميله</a> بدلاً من ذلك.</p>
+                            </video>
+                            <div class="reels-controls">
+                                <button class="reels-play-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="reels-info">
+                            <div class="reels-actions">
+                                <button class="reels-action-btn like-btn">
+                                    <i class="far fa-heart"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn comment-btn">
+                                    <i class="far fa-comment"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn share-btn">
+                                    <i class="far fa-paper-plane"></i>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>YearEx Cars - 2d motion ad</h3>
+                    </div>
+                </div>
+
+                <div class="project-card video-card reels-card" data-category="video">
+                    <div class="reels-container">
+                        <div class="reels-video-wrapper">
+                            <video controls preload="metadata" class="reels-video">
+                                <source src="انجازات ايزو مع اصوات- تعديل - 3لل10 بتريت.mp4" type="video/mp4">
+                                <p>متصفحك لا يدعم تشغيل الفيديو. يمكنك <a href="انجازات ايزو مع اصوات- تعديل - 3لل10 بتريت.mp4">تحميله</a> بدلاً من ذلك.</p>
+                            </video>
+                            <div class="reels-controls">
+                                <button class="reels-play-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="reels-info">
+                            <div class="reels-actions">
+                                <button class="reels-action-btn like-btn">
+                                    <i class="far fa-heart"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn comment-btn">
+                                    <i class="far fa-comment"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn share-btn">
+                                    <i class="far fa-paper-plane"></i>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Iso experts 10th anniversary - 2d motion project</h3>
+                    </div>
+                </div>
+
+                <div class="project-card video-card reels-card" data-category="video">
+                    <div class="reels-container">
+                        <div class="reels-video-wrapper">
+                            <video controls preload="metadata" class="reels-video">
+                                <source src="الاختيار الافضل دائما7.mp4" type="video/mp4">
+                                <p>متصفحك لا يدعم تشغيل الفيديو. يمكنك <a href="الاختيار الافضل دائما7.mp4">تحميله</a> بدلاً من ذلك.</p>
+                            </video>
+                            <div class="reels-controls">
+                                <button class="reels-play-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="reels-info">
+                            <div class="reels-actions">
+                                <button class="reels-action-btn like-btn">
+                                    <i class="far fa-heart"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn comment-btn">
+                                    <i class="far fa-comment"></i>
+                                    <span></span>
+                                </button>
+                                <button class="reels-action-btn share-btn">
+                                    <i class="far fa-paper-plane"></i>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>CityCab - The best choice always</h3>
+                    </div>
+                </div>
+
+
+
+
+                
+            <!-- زر زيارة المشاريع الأخرى -->
+
+        </div>
+                    <div class="drive-projects-btn-container">
+                <h3><i class="fab fa-google-drive"></i> المزيد من المشاريع</h3>
+                <p>لمشاهدة المزيد من أعمالي السابقة والمشاريع الكاملة، يمكنك زيارة مجلد المشاريع على Google Drive</p>
+                <a href="https://drive.google.com/drive/folders/10e85KYIKd1xq8qvD7DPJyGxd-0XITYyx" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="drive-projects-btn pulse">
+                    <i class="fab fa-google-drive"></i>
+                    زيارة كامل المشاريع  
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>اتصل بي</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i><i class="fab fa-whatsapp"></i>
+                            <span>+963 952 459 439</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>agheadshhade@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>وسائل التواصل الاجتماعي</h3>
+                    <p>تابعني على منصات التواصل الاجتماعي</p>
+                    <div class="social-icons">
+                        <a href="http://t.me/agheadss" class="social-icon" aria-label="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="http://instagram.com/agheadss" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>CodeCraft | جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Filter projects functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            // عرض الفيديوهات افتراضياً
+            projectCards.forEach(card => {
+                if (card.getAttribute('data-category') === 'video') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        if (card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // التحكم بفيديوهات الـ Reels
+            const reelsVideos = document.querySelectorAll('.reels-video');
+            
+            reelsVideos.forEach(video => {
+                const playBtn = video.parentElement.querySelector('.reels-play-btn');
+                
+                if (playBtn) {
+                    playBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (video.paused) {
+                            video.play();
+                            this.innerHTML = '<i class="fas fa-pause"></i>';
+                        } else {
+                            video.pause();
+                            this.innerHTML = '<i class="fas fa-play"></i>';
+                        }
+                    });
+                    
+                    video.addEventListener('play', function() {
+                        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    });
+                    
+                    video.addEventListener('pause', function() {
+                        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    });
+                }
+                
+                // تحسينات للجوال
+                video.setAttribute('playsinline', '');
+                video.setAttribute('webkit-playsinline', '');
+            });
+            
+            // زر الإعجاب
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    const countSpan = this.querySelector('span');
+                    let count = parseInt(countSpan.textContent) || 0;
+                    
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = '#ff4757';
+                        countSpan.textContent = count + 1;
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
+                        countSpan.textContent = count - 1;
+                    }
+                });
+            });
+            
+            // زر المشاركة
+            document.querySelectorAll('.share-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'شاهد هذا الفيديو الرائع',
+                            text: 'فيديو مذهل من أعمال أغيد شحادة',
+                            url: window.location.href
+                        });
+                    } else {
+                        alert('شارك الرابط: ' + window.location.href);
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (mobileNav.classList.contains('active')) {
+                            mobileNav.classList.remove('active');
+                            const icon = mobileMenuBtn.querySelector('i');
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
+            
+            // Header background on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.08)';
+                } else {
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.05)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
